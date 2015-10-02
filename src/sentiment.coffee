@@ -1,13 +1,12 @@
 ReturnValue = require 'nanocyte-component-return-value'
 sentiment = require 'sentiment'
 
-class Sentiment extends ReturnValue
+class SentimentNode extends ReturnValue
   onEnvelope: (envelope) =>
-    { config } = envelope
-    { value }  = config
+    { value } = envelope.config
 
     message = sentiment value
     message.text = value
     return message
 
-module.exports = Sentiment
+module.exports = SentimentNode
